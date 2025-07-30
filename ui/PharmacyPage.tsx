@@ -5,7 +5,11 @@ import Button from "@/components/Button";
 import Form from "next/Form";
 import { useActionState, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import MapPH from "./MapPH";
+import dynamic from "next/dynamic";
+
+const MapPH = dynamic(() => import("./MapPH"), {
+  ssr: false,
+});
 import { supabase } from "@/lib/supabase";
 import { usePathname } from "next/navigation";
 
@@ -90,11 +94,10 @@ export default function PharmacyPage() {
 
   // Show toast messages
   useEffect(() => {
-    if (state.message) {
-      const toastOptions = { duration: 3000 };
-      state.type === "error"
-        ? toast.error(state.message, toastOptions)
-        : toast.success(state.message, toastOptions);
+    if (state.type === "error") {
+      toast.error(state.message);
+    } else {
+      toast.success(state.message);
     }
   }, [state]);
 
@@ -108,13 +111,15 @@ export default function PharmacyPage() {
   };
 
   // Handle location changes
-  const handleLocationChange = (position: [number, number]) => {
+  const handleLocationChange = (position: [number, number] | null) => {
     setMarkerPosition(position);
-    setPharmacy((prev) => ({
-      ...prev!,
-      lat: position[0],
-      lng: position[1],
-    }));
+    if (position) {
+      setPharmacy((prev) => ({
+        ...prev!,
+        lat: position[0],
+        lng: position[1],
+      }));
+    }
   };
 
   return (

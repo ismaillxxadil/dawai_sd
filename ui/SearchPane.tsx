@@ -20,7 +20,7 @@ export type Medicine = {
   type?: string | null;
   pharmacy?: Pharmacy | null;
 };
-type TypeOfSearch = "medicine" | "pharmacy" | "hospital";
+
 type SortType = "distance" | "price" | "date" | null;
 export default function SearchPane() {
   const { userLocation, setUserLocation, setSelectedPharmacy } = useMapStore();

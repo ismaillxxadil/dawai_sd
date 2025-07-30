@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from "react";
 import SearchPane from "@/ui/SearchPane";
-import Map from "@/ui/Map";
 import Split from "react-split";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("@/ui/Map"), {
+  ssr: false,
+});
 
 export default function Search() {
   const [isMobile, setIsMobile] = useState(false);

@@ -12,8 +12,6 @@ import { useState, useCallback, useEffect } from "react";
 import L from "leaflet";
 import { toast } from "react-hot-toast";
 
-// إصلاح مشكلة الأيقونات في Leaflet
-delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
@@ -26,9 +24,8 @@ export default function MapPH({
   setMarkerPosition,
 }: {
   markerPosition: [number, number] | null;
-  setMarkerPosition: React.Dispatch<
-    React.SetStateAction<[number, number] | null>
-  >;
+  setMarkerPosition: (position: [number, number] | null) => void;
+  disabled?: boolean;
 }) {
   const [mapCenter, setMapCenter] = useState<[number, number]>([
     30.0444, 31.2357,
