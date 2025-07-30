@@ -2,7 +2,6 @@
 import { action, updatePharamcy } from "@/app/(app)/pharmacies/action";
 import { useUserStore } from "@/app/store/useUserStore";
 import Button from "@/components/Button";
-import Form from "next/Form";
 import { useActionState, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
@@ -126,7 +125,7 @@ export default function PharmacyPage() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Form Section */}
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <Form className="space-y-4" action={formAction}>
+        <form className="space-y-4" action={formAction}>
           <input type="hidden" name="ph_id" value={user?.id || ""} />
 
           {/* Pharmacy Name */}
@@ -252,7 +251,7 @@ export default function PharmacyPage() {
           >
             {pharmacy?.id ? "تحديث البيانات" : "حفظ البيانات"}
           </Button>
-        </Form>
+        </form>
       </div>
 
       {/* Map Section */}
