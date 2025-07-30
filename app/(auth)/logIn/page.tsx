@@ -4,7 +4,6 @@ import { RoleType } from "@/lib/supabaseFunction";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import { User, useUserStore } from "../../store/useUserStore";
-import Form from "next/Form";
 import { action } from "./action";
 import Image from "next/image";
 import toast from "react-hot-toast";
@@ -59,7 +58,7 @@ function LoginPage() {
             أهلاً بك! الرجاء تسجيل الدخول للمتابعة.
           </p>
         </div>
-        <Form action={formAction} className="space-y-7 w-full">
+        <form action={formAction} className="space-y-7 w-full">
           <div>
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
@@ -112,7 +111,7 @@ function LoginPage() {
               أنشئ حساب جديد
             </a>
           </div>
-        </Form>
+        </form>
       </div>
       <style jsx>{`
         .animate-fade-in {
