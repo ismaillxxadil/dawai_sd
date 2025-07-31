@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 import { console } from "inspector";
 import { redirect } from "next/navigation";
 
-export async function action(
+export async function insetPharamcy(
   prevState: { message: string; type: string },
   formData: FormData
 ) {

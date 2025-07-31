@@ -1,5 +1,5 @@
 "use client";
-import { action, updatePharamcy } from "@/app/(app)/pharmacies/action";
+import { insetPharamcy, updatePharamcy } from "@/app/(app)/pharmacies/action";
 import { useUserStore } from "@/app/store/useUserStore";
 import Button from "@/components/Button";
 import { useActionState, useEffect, useState } from "react";
@@ -87,7 +87,7 @@ export default function PharmacyPage() {
 
   // Handle form state and actions
   const [state, formAction, isLoading] = useActionState(
-    pharmacy ? updatePharamcy : action,
+    pharmacy === null ? updatePharamcy : insetPharamcy,
     { message: "", type: "" }
   );
 
@@ -169,7 +169,7 @@ export default function PharmacyPage() {
               <input
                 name="end_time"
                 type="time"
-                value={pharmacy?.work_start || ""}
+                defaultValue={pharmacy?.work_start || ""}
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 disabled={loading}
@@ -182,26 +182,12 @@ export default function PharmacyPage() {
               <input
                 name="start_time"
                 type="time"
-                value={pharmacy?.work_end || ""}
+                defaultValue={pharmacy?.work_end || ""}
                 onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 disabled={loading}
               />
             </div>
-          </div>
-
-          {/* Pharmacy Image */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              صورة الصيدلية
-            </label>
-            <input
-              name="image"
-              type="file"
-              accept="image/*"
-              className="w-full"
-              disabled={loading}
-            />
           </div>
 
           {/* Location Coordinates */}
