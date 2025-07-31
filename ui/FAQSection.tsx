@@ -1,19 +1,10 @@
 "use client";
 import { useState } from "react";
 import QuestionItem from "@/components/QuestionItem";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-import { useEffect } from "react";
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
+
   const faqs = [
     {
       id: "item-1",
@@ -46,15 +37,7 @@ export default function FAQPage() {
   };
 
   return (
-    <section
-      className=" py-16"
-      data-aos="fade-up"
-      data-aos-once="false"
-      data-aos-duration="500"
-      data-aos-easing="ease-in-out"
-      data-aos-anchor-placement="top-center"
-      data-aos-delay="200"
-    >
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-extrabold text-primary text-center mb-10">
           الأسئلة الشائعة

@@ -1,24 +1,11 @@
-"use client";
 import {
   FaSearch,
   FaMoneyBillWave,
   FaMapMarkedAlt,
   FaRegFileAlt,
 } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-import { useEffect } from "react";
 
 export default function WhyDawaiSection() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
-
   const steps = [
     {
       id: 1,
@@ -51,12 +38,7 @@ export default function WhyDawaiSection() {
   ];
 
   return (
-    <section
-      className=" py-16"
-      data-aos="fade-up"
-      data-aos-once="false"
-      data-aos-delay="200"
-    >
+    <section className=" py-16">
       <div className="container mx-auto text-center">
         <h2 className="text-5xl font-extrabold mb-12 text-primary">
           لماذا دوائي؟

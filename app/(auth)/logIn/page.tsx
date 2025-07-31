@@ -70,7 +70,6 @@ function LoginPage() {
               id="email"
               name="email"
               type="email"
-              defaultValue="is@is.com"
               placeholder="أدخل البريد الإلكتروني"
               required
               className="bg-gray-50 border border-blue-200 rounded-lg w-full py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm"
@@ -87,7 +86,6 @@ function LoginPage() {
               id="password"
               type="password"
               name="password"
-              defaultValue="123456"
               placeholder="أدخل كلمة المرور"
               required
               className="bg-gray-50 border border-blue-200 rounded-lg w-full py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm"
